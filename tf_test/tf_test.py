@@ -17,4 +17,3 @@ plt.figure(3)
 plt.plot(t,y,'k-',label=name)
 plt.legend(loc='best')
 plt.show()
-
