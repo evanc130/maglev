@@ -17,12 +17,20 @@ name = 'Test'
 num = 2*gamma*v_bar/(r_bar**2)
 p1 = 2*gamma*v_bar**2/r_bar**3
 den = [1, 0, p1]
-sys = signal.TransferFunction(num,den)
+G = signal.TransferFunction(num,den)
 z,p,k = signal.tf2zpk(num,den)
-print(p)
+#print(G)
+
+# Creating Controller Transfer Function C####################################
+Kd = 1;
+Kp = 1;
+Ki = 1;
+C = signal.TransferFunction([Kd, Kp, Ki],1)
+#print(C)
 plt.figure(1)
 #for i in R_hat_0:
-tout,y,x = signal.lsim(sys, step, t, R_hat_0)
+CG = C*G
+tout,y,x = signal.lsim(CG, step, t, R_hat_0)
 print(y)
 plt.plot(t,y)
 #plt.legend(loc='best')
