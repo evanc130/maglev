@@ -8,7 +8,8 @@ v_bar = 6                               #[V]
 r_bar = -np.sqrt((gamma*v_bar**2)/g)     #[length]
 print('r_bar = ',r_bar)
 #R_hat_0 = [-1, -0.5, -0.25, -0.1, -0.05, 0.05, 0.1, 0.25, 0.4, 0.5, 1, 2]
-R_hat_0 = 0
+R_hat_0 = 1
+print('R_hat_0 = ',R_hat_0)
 t = np.arange(0.0,1.0,0.01)
 step = 0*np.heaviside(t,1)
 
