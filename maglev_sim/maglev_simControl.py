@@ -6,8 +6,8 @@ import control
 
 # ------------ Initiate variables  -------------------
 g = 9.8                                 #[m/s^2]
-gamma = 1                             #[who knows?]
-v_bar = 6                               #[V]
+gamma = .0004338                        #[who knows?]
+v_bar = 5                               #[V]
 r_bar = -np.sqrt((gamma*v_bar**2)/g)     #[length]
 print('r_bar = ',r_bar)
 #R_hat_0 = [-1, -0.5, -0.25, -0.1, -0.05, 0.05, 0.1, 0.25, 0.4, 0.5, 1, 2]
@@ -26,8 +26,8 @@ Gsys = control.TransferFunction(num, den)
 
 
 #  ------------- Initiate Controller ---------------
-Kgain = 75
-tau = .5    # 1/intended zero placement
+Kgain = 100
+tau = .025    # 1/intended zero placement
 numC = np.array([tau, 1])*Kgain
 Csys = control.TransferFunction(numC, 1)
 
